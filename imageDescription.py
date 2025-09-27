@@ -20,10 +20,6 @@ def process_image(image_path):
   if detections.boxes is not None:
       class_names = [model.names[int(box.cls)] for box in detections.boxes if float(box.conf[0]) > 0.9]
       unique_objects = set(class_names)
-      if(image_path=="File_001.png"):
-        unique_objects={'ID Card', 'Card Reader','Scanning'}
-      if(image_path=='File_002.png'):
-        unique_objects={'Biometric Attendance Device','Office'}
       elements="".join(unique_objects)
       elements = ", ".join(unique_objects) # Join with commas for clarity
 
@@ -45,3 +41,4 @@ def process_image(image_path):
   {combined_elements}
   """
   print_file_description_and_key_findings(prompt)
+
