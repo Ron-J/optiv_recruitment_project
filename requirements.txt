@@ -1,0 +1,11 @@
+google-generativeai
+torch
+torchvision
+transformers
+pillow
+ultralytics
+pytesseract
+opencv-python
+python-pptx
+pypdf
+pandas
