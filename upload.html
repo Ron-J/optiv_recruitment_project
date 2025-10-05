@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Cleaning and Analysis</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9; /* Light, professional background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            padding-top: 50px; /* Space from the top */
+        }
+
+        /* Container for the main content */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Header Styling */
+        h1 {
+            color: #007bff; /* Blue for a professional feel */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Description Text Styling */
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.1em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 2px dashed #a0c4ff; /* Dashed border for the upload zone */
+            border-radius: 8px;
+            background-color: #f8faff; /* Very light blue background for the form area */
+        }
+
+        input[type=file] {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; /* Take up max width of the form */
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        /* Button Styling */
+        button[type=submit] {
+            background-color: #28a745; /* Green for action/go */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type=submit]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        
+        /* Message/Result Styling */
+        .msg {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #d4edda; /* Light green background for success */
+            border: 1px solid #c3e6cb;
+            color: #155724; /* Dark green text */
+        }
+
+        .msg h3 {
+            margin-top: 0;
+            color: #155724;
+        }
+
+        /* --- THE MODIFICATION IS HERE --- */
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            font-size: 1.5em; /* Doubled the font size */
+        }
+        /* -------------------------------- */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Cleaning and Analysis</h1>
+        
+        <p class="description">
+            Securely upload configuration files, logs, or potential artifacts for automated cleaning, **sanitization**, and initial **security analysis**. This tool is designed to quickly parse and present critical information, accelerating your forensic workflow.
+        </p>
+        
+        {% if result %}
+          <div class="msg">
+            <h3>Processing Result:</h3>
+            <pre>{{ result }}</pre>
+          </div>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit">Upload & Analyze</button>
+        </form>
+    </div>
+</body>
+</html>
